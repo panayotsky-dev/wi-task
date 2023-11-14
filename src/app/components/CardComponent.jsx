@@ -42,7 +42,7 @@ function CardComponent() {
             <h1>heart</h1>
             </div>
             <h1 className='mt-[24px] text-[48px] font-sans max-w-[348px]'>Black Valentino
-dress with tulle </h1>
+dress with tulle </h1>  
 
             bgfd
         </div>
