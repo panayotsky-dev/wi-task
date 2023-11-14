@@ -33,7 +33,7 @@ function Header() {
  ]
 
   return (
-    <div className='w-full bg-white text-black  h-full '>
+    <div className='w-full bg-white text-black  h-full top-0  '>
        <div className='px-[40px] mt-[19px] justify-between text-black flex'>
         <div className='flex flex-row items-center justify-center '>
             <img src='logo.png' alt='logoImage' className='mr-[16px] mt-1 w-[22px] h-[24px]'/>
