@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Header from './components/Header'
-import CardComponent from './components/CardComponent'
+import CardComponent from './components/Card/CardComponent'
 
 export default function Home() {
   return (
