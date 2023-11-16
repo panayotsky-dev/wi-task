@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import ReviewStats from "./ReviewStats";
 import CardTitle from "./CardTitle";
 import CardInfo from "./CardInfo";
+import ProductDetails from "./ProductDetails";
+import ProductStats from "./ProductStats";
 
 function CardComponent() {
     
@@ -73,6 +75,8 @@ function CardComponent() {
 
           <ReviewStats />
           <CardInfo />
+          <ProductDetails />
+          <ProductStats />
           
         </div>
       </div>
