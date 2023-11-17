@@ -2,7 +2,7 @@ import React from 'react'
 
 function CardTitle({title}) {
   return (
-    <h1 className=" text-[48px] font-sans max-w-[348px]">
+    <h1 className=" -mt-[24px] text-[48px] font-sans max-w-[348px]">
             {title}
           </h1>
   )
