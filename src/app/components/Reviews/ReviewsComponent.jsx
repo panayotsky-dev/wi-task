@@ -1,6 +1,7 @@
 import React from 'react'
 import ReviewStats from '../Card/ReviewStats'
 import FormComponent from './FormComponent'
+import Reviews from './Reviews'
 
 function ReviewsComponent() {
   return (
@@ -8,6 +9,8 @@ function ReviewsComponent() {
         <h2 className='text-[#1B2437] font-sans text-[34px] mt-[56.5px]'>Reviews</h2>
         <ReviewStats />
         <FormComponent />
+        <Reviews />
+        
     </div>
   )
 }
