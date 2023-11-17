@@ -10,8 +10,8 @@ import {motion} from 'framer-motion'
 function CardComponent() {
     const [selectedImage,setSelectedImage] = useState('1')
   return (
-    <div className=" w-[1140px] justify-center  flex bg-white mt-[62px] text-[#1B2437]     max-h-[660px] rounded-xl">
-      <div className="grid grid-cols-2 ">
+    <div className=" xl:w-[1140px] justify-center  flex bg-white mt-[62px] text-[#1B2437] sm:w-fit md:h-full md:w-fit     md:max-h-[660px] rounded-xl">
+      <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 ">
         <div className=" flex  flex-col justify-center pl-[40px]  pb-[40px] ">
           <div className="mt-[40px] px-[156px] justify-center items-center flex-col flex">
             <img 
