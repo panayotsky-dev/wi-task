@@ -7,6 +7,7 @@ import { IoBagSharp } from "react-icons/io5"
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import NavigationComponent from './Header/NavigationComponent'
 import {motion} from 'framer-motion'
+import { useContextData } from '../utils/contextData'
 
 function Header() {
  const socialIcons = [
@@ -31,11 +32,9 @@ function Header() {
         link:'twitter.com'
 
     },
-
-
  ]
 
- 
+ const {cartCount} = useContextData()
 
   return (
     <div className='w-full bg-white text-black  h-full top-0  '>
@@ -70,7 +69,20 @@ function Header() {
          
           className='grid grid-cols-2 gap-[24px] justify-between items-center'>
             <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><HiMagnifyingGlass /></motion.div>
-            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><IoBagOutline /></motion.div>
+            {cartCount == 0 ? (
+                <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><IoBagOutline /></motion.div>
+            ):(<div className='items-center justify-center flex flex-row -ml-4'>
+                <IoBagOutline />
+                <motion.div className="rounded-full bg-[#EDA3B5] w-6 ml-2  flex justify-center items-center text-center"
+                animate={{opacity:1,x:0,y:0}}
+                initial={{opacity:0,y:-200,}}
+                
+                exit={{opacity:0,y:100,x:100}}>
+                        <p className='text-sm text-white font-semibold mx-1 '
+                        >{cartCount}</p>
+                        </motion.div>
+            </div>)}
+            
             
         </motion.div>
        </div>

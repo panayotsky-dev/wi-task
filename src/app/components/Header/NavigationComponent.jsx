@@ -1,9 +1,11 @@
 'use client'
+import { useContextData } from '@/app/utils/contextData'
 import React, { useState } from 'react'
 
 
 function NavigationComponent() {
-    const [headerLocation,setHeaderLocation] = useState('Home')
+    const {headerLocation,setHeaderLocation} = useContextData()
+    
   return (
     <div className=' justify-center grid items-center mt-[68px] '> 
        <ul className='  justify-center grid grid-cols-4 place-items-center items-center gap-x-[40px]  '>

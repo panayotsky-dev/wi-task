@@ -3,7 +3,7 @@ export const productData = [
         id:1,
         title:'Black Valentino dress with tulle',
         price:1315,
-        sizes:[XS,S,M],
+        sizes:['XS','S','M'],
         colors:['#1B2437','#127681','#32E0C4'],
         info:`Dress with tulle and collar Peter Pan from REDValentino 
         (Red Valentino). Peter Pan collar, tulle panels, sleeveless model, 

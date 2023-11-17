@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function ProductDetails() {
     const [selectedSize,setSelectedSize] = useState('S')
-    const [color,setColor] = useState('1')
+    const [color,setColor] = useState('')
   return (
     <div className='mt-[32px]  grid grid-cols-2'>
             <div className=' pr-[36px]'>
