@@ -67,10 +67,11 @@ function Header() {
          initial={{opacity:1,x:300,}}
          animate={{ opacity: 1,x:0, }}
          transition={{type:"spring",stiffness:100,}}
-         whileTap={{scale:0.95}}
+         
           className='grid grid-cols-2 gap-[24px] justify-between items-center'>
-            <HiMagnifyingGlass />
-            <IoBagOutline />
+            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><HiMagnifyingGlass /></motion.div>
+            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><IoBagOutline /></motion.div>
+            
         </motion.div>
        </div>
        <NavigationComponent />
