@@ -40,11 +40,11 @@ function Header() {
   return (
     <div className='w-full bg-white text-black  h-full top-0  '>
        <div className='px-[40px] mt-[19px] justify-between text-black flex'>
-        <motion.div
+        <motion.div 
          initial={{opacity:1,x:-300,}}
          animate={{ opacity: 1,x:0, }}
-         transition={{duration:1.5,type:"spring",stiffness:100,}}
-         whileTap={{scale:0.95}}
+         transition={{type:"spring",stiffness:100,}}
+         
           className='flex flex-row items-center justify-center '>
             <img src='logo.png' alt='logoImage' className='mr-[16px] mt-1 w-[22px] h-[24px]'/>
             <h1 className=' text-[24px] font-sans ' >Clay Shop</h1>
@@ -52,19 +52,21 @@ function Header() {
         <motion.div 
          initial={{opacity:1,y:-300,}}
          animate={{ opacity: 1,y:0, }}
-         transition={{duration:1.5,type:"spring",stiffness:100,}}
+         transition={{type:"spring",stiffness:100,}}
          whileTap={{scale:0.95}}
         className='grid  grid-cols-3 gap-x-[40px] items-center'>
-        <img src='/Icons/instagram_icn _1.png' />
-        <img src='/Icons/twitter_icn_1.png' />
-            <img src='/Icons/facebook_icn_1.png' />
+            <a  href="www.instagram.com" target='_blank'><img src='/Icons/instagram_icn _1.png' /></a>
+            <a  href="www.twitter.com" target='_blank'> 
+        <img src='/Icons/twitter_icn_1.png' /></a>
+        <a href="www.facebook.com" target='_blank'>
+            <img src='/Icons/facebook_icn_1.png' /></a>
             
             
         </motion.div>
         <motion.div
          initial={{opacity:1,x:300,}}
          animate={{ opacity: 1,x:0, }}
-         transition={{duration:1.5,type:"spring",stiffness:100,}}
+         transition={{type:"spring",stiffness:100,}}
          whileTap={{scale:0.95}}
           className='grid grid-cols-2 gap-[24px] justify-between items-center'>
             <HiMagnifyingGlass />

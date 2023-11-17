@@ -5,41 +5,42 @@ import CardTitle from "./CardTitle";
 import CardInfo from "./CardInfo";
 import ProductDetails from "./ProductDetails";
 import ProductStats from "./ProductStats";
+import {motion} from 'framer-motion'
 
 function CardComponent() {
-    
+    const [selectedImage,setSelectedImage] = useState('1')
   return (
-    <div className=" w-[1100px] justify-center  flex bg-white mt-[62px] text-black     max-h-[660px] rounded-xl">
+    <div className=" w-[1140px] justify-center  flex bg-white mt-[62px] text-[#1B2437]     max-h-[660px] rounded-xl">
       <div className="grid grid-cols-2 ">
         <div className=" flex  flex-col justify-center pl-[40px]  pb-[40px] ">
           <div className="mt-[40px] px-[156px] justify-center items-center flex-col flex">
-            <img
+            <img 
               src="/product/dres1.png"
               alt="dres1"
-              className=" object-cover max-w-[280px] max-h-[436px]"
+              className="object-cover max-w-[280px] max-h-[436px]"
             />
             <div className="flex flex-row mt-[56px]  ">
-              <div className="w-[88px] h-[88px]  rounded-md flex border-2  justify-center items-center  mr-[24px]">
-                <img
+              <div onClick={() => setSelectedImage('1')} className={`${selectedImage === '1' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+                <motion.img whileHover={{scale:1.1}}
                   src="/product/dres1.png"
-                  className="w-[46px] h-[72px]  hover:scale-105 "
+                  className="w-[46px] h-[72px]"
                 />
               </div>
 
-              <div className="w-[88px] h-[88px]  rounded-md flex border-2  justify-center items-center  mr-[24px] ">
-                <img src="/product/dres1.png" className="w-[46px] h-[72px]  " />
+              <div onClick={() => setSelectedImage('2')} className={`${selectedImage === '2' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+                <motion.img whileHover={{scale:1.1}} src="/product/dres1.png" className="max-w-[72px] max-h-[72px] flex-shrink-0  " />
               </div>
 
-              <div className="w-[88px] h-[88px]  rounded-md flex border-2  justify-center items-center  mr-[24px]">
-                <img src="/product/dres1.png" className="w-[46px] h-[72px]  " />
+              <div onClick={() => setSelectedImage('3')} className={`${selectedImage === '3' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+                <motion.img whileHover={{scale:1.1}} src="/product/dres1.png" className="w-[46px] h-[72px]  "  />
               </div>
 
-              <div className="w-[88px] h-[88px]  rounded-md flex border-2  justify-center items-center  mr-[24px]">
-                <img src="/product/dres1.png" className="w-[46px] h-[72px]  " />
+              <div  onClick={() => setSelectedImage('4')} className={`${selectedImage === '4' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+                <motion.img whileHover={{scale:1.1}} src="/product/dres1.png" className="w-[46px] h-[72px]  " />
               </div>
 
-              <div className="w-[88px] h-[88px] rounded-md  flex border-2  justify-center items-center ">
-                <img src="/product/dres1.png" className="w-[46px] h-[72px]  " />
+              <div  onClick={() => setSelectedImage('5')} className={`${selectedImage === '5' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+                <motion.img whileHover={{scale:1.1}} src="/product/dres1.png" className="w-[46px] h-[72px]  " />
               </div>
             </div>
           </div>
@@ -48,7 +49,7 @@ function CardComponent() {
         </div>
         <div className="px-[32px] ">
           <div className="flex flex-row justify-between items-center py-[32px]">
-            <section className="px-[21px] pt-[6px] pb-[8px] text-[14px] text-black bg-neutral-300 rounded-full font-semibold">
+            <section className="px-[21px] pt-[6px] pb-[8px] text-[14px] text-[#1B2437] bg-neutral-300 rounded-full font-semibold">
               Popular
             </section>
 
