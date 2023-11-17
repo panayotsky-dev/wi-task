@@ -20,7 +20,7 @@ function CardComponent() {
               className="object-cover max-w-[280px] max-h-[436px]"
             />
             <div className="flex flex-row mt-[56px]  ">
-              <div onClick={() => setSelectedImage('1')} className={`${selectedImage === '1' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+              <div onClick={() => setSelectedImage('1')} className={`${selectedImage === '1' ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
                 <motion.img whileHover={{scale:1.1}}
                   src="/product/dres1.png"
                   className="w-[46px] h-[72px]"
