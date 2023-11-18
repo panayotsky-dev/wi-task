@@ -18,14 +18,14 @@ function CardComponent({product}) {
       <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 ">
         <div className=" flex  flex-col justify-center pl-[40px]  pb-[40px] ">
           <div className="mt-[40px] px-[156px] justify-center items-center flex-col flex">
-            <img 
+            <img key={selectedImage}
               src={product.thumbnails[selectedImage]}
               alt="dres1"
               className="object-cover w-[280px] h-[436px]"
             />
             <div className="flex flex-row mt-[56px]  ">
               {product.thumbnails.map((image,index) => (
-                <motion.div      
+                <motion.div    key={image+index}  
               initial={{opacity:0,x:-100}} 
               animate={{opacity:1,x:0}}      
               transition={{delay:0.1}} onClick={() => setSelectedImage(index)} className={`${selectedImage === index ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
