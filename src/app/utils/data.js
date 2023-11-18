@@ -14,7 +14,7 @@ export const productData = [
         delivery:`Delivery with tulle and collar Peter Pan from REDValentino 
         (Red Valentino). Peter Pan collar, tulle panels, sleeveless model, 
         concealed back zipper and pleated skirt. Black colour.`,
-        reviews:132,
+        reviews:2,
         score:4,
         image:'product/dres1.png',
         thumbnails:['product/dres1.png','product/dres2.png','product/dres3.png','product/dres4.png','product/dres1.png'],
