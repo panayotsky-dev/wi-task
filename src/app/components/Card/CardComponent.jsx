@@ -70,7 +70,7 @@ function CardComponent({product}) {
 
           <ReviewStats />
           <CardInfo  info={product.info} brand={product.brand} delivery={product.delivery}/>
-          <ProductDetails />
+          <ProductDetails sizes={product.sizes} colors={product.colors} />
           <ProductStats />
           
         </div>
