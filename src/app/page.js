@@ -4,6 +4,8 @@ import Header from './components/Header'
 import CardComponent from './components/Card/CardComponent'
 import ReviewsComponent from './components/Reviews/ReviewsComponent'
 import { ContextProvider, useContextData } from './utils/contextData'
+import Footer from './components/Footer'
+
 
 export default function Home() {
   const { allProducts,pickProduct,selectedProduct } = useContextData();
@@ -18,6 +20,8 @@ export default function Home() {
       <Header />
       <CardComponent product={selected}/>
       <ReviewsComponent />
+      
+      <Footer />
       
     </main>
     
