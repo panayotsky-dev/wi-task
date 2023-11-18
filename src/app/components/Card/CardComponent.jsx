@@ -68,9 +68,9 @@ function CardComponent({product}) {
           </div>
           <CardTitle title={product.title} />
 
-          <ReviewStats />
+          <ReviewStats props={product.allReviews} />
           <CardInfo  info={product.info} brand={product.brand} delivery={product.delivery}/>
-          <ProductDetails sizes={product.sizes} colors={product.colors} />
+          <ProductDetails product={product} />
           <ProductStats />
           
         </div>

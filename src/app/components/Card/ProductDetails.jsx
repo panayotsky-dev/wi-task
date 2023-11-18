@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ProductDetails({sizes,colors}) {
+function ProductDetails({product}) {
     const [selectedSize,setSelectedSize] = useState('S')
     const [color,setColor] = useState('#1B2437')
   return (
@@ -11,7 +11,7 @@ function ProductDetails({sizes,colors}) {
                     <span className='text-[#EDA3B5] text-right text-[16px] font-bold'>Size Guide</span>
                 </div>
                 <div className='flex flex-row justify-between mt-[8px]'>
-                    {sizes.map((size,index) => (
+                    {product.sizes.map((size,index) => (
                         <button key={index+size} onClick={() => {
                             setSelectedSize(size);
                           }} className={`${selectedSize === size ? " bg-[#EDA3B5] w-[60px] h-[44px]  text-white" : "border-gray-200 border-2"} w-[60px] h-[44px]   rounded-md text-[#1B2437] `}>{size}</button>
@@ -23,11 +23,16 @@ function ProductDetails({sizes,colors}) {
             <div className=' pr-[40px]'>
                     <span className='text-[#1B2437] text-[16px]'>Color</span>
                 <div className='flex flex-row justify-between mt-[10px] pr-[40px] '>
-                {colors.map((pickedColor,index) => (
-                        <div key={pickedColor+index} className={`rounded-md outline-offset-5 ${color == pickedColor ? `border-2 border-[${pickedColor}]` : ""}`}>
-                        <button onClick={() => setColor(pickedColor)} className={`w-[24px] h-[24px] bg-[${pickedColor}] rounded-sm m-[5px] items-center flex`}></button>
-                      </div>
-                    ))}
+   
+<div key={'#1B2437'} className={`rounded-md outline-offset-5 ${color === '#1B2437' ? `border-2 border-[#1B2437]` : ""}`}>
+    <button onClick={() => setColor('#1B2437')} className={`w-[24px] h-[24px] bg-[#1B2437] rounded-sm m-[5px] items-center flex`}></button>
+  </div>
+  <div key={'#127681'} className={`rounded-md outline-offset-5 ${color === '#127681' ? `border-2 border-[#127681]` : ""}`}>
+    <button onClick={() => setColor('#127681')} className={`w-[24px] h-[24px] bg-[#127681] rounded-sm m-[5px] items-center flex`}></button>
+  </div>
+  <div key={'#32E0C4'} className={`rounded-md outline-offset-5 ${color === '#32E0C4' ? `border-2 border-[#32E0C4]` : ""}`}>
+    <button onClick={() => setColor('#32E0C4')} className={`w-[24px] h-[24px] bg-[#32E0C4] rounded-sm m-[5px] items-center flex`}></button>
+  </div>
                 </div>
                 
             </div>
