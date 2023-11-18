@@ -33,7 +33,6 @@ export const productData = [
                 rating:4,
                 message:'Not example review',
             },
-
         ]
     },
     

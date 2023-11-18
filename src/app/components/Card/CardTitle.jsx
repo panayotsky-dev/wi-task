@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CardTitle({title}) {
+function CardTitle({product}) {
   return (
     <h1 className=" -mt-[24px] text-[48px] font-sans max-w-[348px]">
-            {title}
+            {product}
           </h1>
   )
 }

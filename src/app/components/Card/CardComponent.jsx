@@ -7,7 +7,8 @@ import ProductDetails from "./ProductDetails";
 import ProductStats from "./ProductStats";
 import {motion} from 'framer-motion'
 
-function CardComponent() {
+function CardComponent({product}) {
+  console.log('Product',{product})
     const [selectedImage,setSelectedImage] = useState('1')
   return (
     <div className=" xl:w-[1140px] justify-center  flex bg-white mt-[62px] text-[#1B2437] sm:w-fit md:h-full md:w-fit     md:max-h-[660px] rounded-xl">
@@ -87,7 +88,7 @@ function CardComponent() {
               </div>
             </div>
           </div>
-          <CardTitle title='Black Valentino dress with tulle' />
+          <CardTitle title={'ASD'} />
 
           <ReviewStats />
           <CardInfo />

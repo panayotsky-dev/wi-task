@@ -13,15 +13,36 @@ export function ContextProvider({children}) {
     const [pickedSize,setPickedSize] = useState('')
     const [amount,setAmount] = useState(0)
     const [headerLocation,setHeaderLocation] = useState('Home')
+    const [selectedProduct,setSelectedProduct] = useState(null)
+    
+    const pickProduct = (id) => {
+        const selected = allProducts.filter((product) => product.id === id)[0];
+        if (selected) {
+          setSelectedProduct(selected);
+        }
+      };
 
-    const addToCart = (preductId) =>{
+    const addToCart = (productId) =>{
         setCartCount((prevCount) => prevCount +1);
-        setCartProducts((prevCart) => [...prevCart,preductId]);        
+        setCartProducts((prevCart) => [...prevCart,productId]);        
     }
+    const addReviewToProduct = (productId, review) => {
+        setAllProducts((prevProducts) =>
+          prevProducts.map((product) =>
+            product.id === productId
+              ? {
+                  ...product,
+                  reviews: [...product.reviews, review],                  
+                  score: (product.score * product.reviews.length + review.rating) / (product.reviews.length + 1),
+                }
+              : product
+          )
+        );
+      };
 
 
  return (
-    <ContextData.Provider value={{addToCart,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,pickedSize,setPickedSize,amount,headerLocation,setHeaderLocation}}>
+    <ContextData.Provider value={{pickProduct,selectedProduct,addToCart,addReviewToProduct,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,pickedSize,setPickedSize,amount,headerLocation,setHeaderLocation}}>
         {children}
     </ContextData.Provider>
     
