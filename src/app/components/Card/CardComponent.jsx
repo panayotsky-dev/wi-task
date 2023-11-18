@@ -71,7 +71,7 @@ function CardComponent({product}) {
           <ReviewStats props={product.allReviews} />
           <CardInfo  info={product.info} brand={product.brand} delivery={product.delivery}/>
           <ProductDetails product={product} />
-          <ProductStats />
+          <ProductStats product={product} />
           
         </div>
       </div>

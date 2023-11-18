@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function ProductDetails({product}) {
-    const [selectedSize,setSelectedSize] = useState('S')
-    const [color,setColor] = useState('#1B2437')
+    const [selectedSize,setSelectedSize] = useState('')
+    const [color,setColor] = useState('')
+    useEffect(() => {
+      
+    }, [selectedSize,color])
+    
   return (
     <div className='mt-[32px]  grid grid-cols-2'>
             <div className=' pr-[36px]'>
@@ -25,13 +29,13 @@ function ProductDetails({product}) {
                 <div className='flex flex-row justify-between mt-[10px] pr-[40px] '>
    
 <div key={'#1B2437'} className={`rounded-md outline-offset-5 ${color === '#1B2437' ? `border-2 border-[#1B2437]` : ""}`}>
-    <button onClick={() => setColor('#1B2437')} className={`w-[24px] h-[24px] bg-[#1B2437] rounded-sm m-[5px] items-center flex`}></button>
+    <button onClick={() =>color != '#1B2437' ? setColor('#1B2437') : setColor('')} className={`w-[24px] h-[24px] bg-[#1B2437] rounded-sm m-[5px] items-center flex`}></button>
   </div>
   <div key={'#127681'} className={`rounded-md outline-offset-5 ${color === '#127681' ? `border-2 border-[#127681]` : ""}`}>
-    <button onClick={() => setColor('#127681')} className={`w-[24px] h-[24px] bg-[#127681] rounded-sm m-[5px] items-center flex`}></button>
+    <button onClick={() =>  color != '#127681' ? setColor('#127681') : setColor('')} className={`w-[24px] h-[24px] bg-[#127681] rounded-sm m-[5px] items-center flex`}></button>
   </div>
   <div key={'#32E0C4'} className={`rounded-md outline-offset-5 ${color === '#32E0C4' ? `border-2 border-[#32E0C4]` : ""}`}>
-    <button onClick={() => setColor('#32E0C4')} className={`w-[24px] h-[24px] bg-[#32E0C4] rounded-sm m-[5px] items-center flex`}></button>
+    <button onClick={() => color != '#32E0C4' ? setColor('#32E0C4') : setColor('')} className={`w-[24px] h-[24px] bg-[#32E0C4] rounded-sm m-[5px] items-center flex`}></button>
   </div>
                 </div>
                 
