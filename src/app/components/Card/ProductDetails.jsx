@@ -12,7 +12,7 @@ function ProductDetails({sizes,colors}) {
                 </div>
                 <div className='flex flex-row justify-between mt-[8px]'>
                     {sizes.map((size,index) => (
-                        <button key={index} onClick={() => {
+                        <button key={index+size} onClick={() => {
                             setSelectedSize(size);
                           }} className={`${selectedSize === size ? " bg-[#EDA3B5] w-[60px] h-[44px]  text-white" : "border-gray-200 border-2"} w-[60px] h-[44px]   rounded-md text-[#1B2437] `}>{size}</button>
                     ))}
@@ -21,21 +21,13 @@ function ProductDetails({sizes,colors}) {
                 </div>
             </div>
             <div className=' pr-[40px]'>
-            
                     <span className='text-[#1B2437] text-[16px]'>Color</span>
-                   
-               
                 <div className='flex flex-row justify-between mt-[10px] pr-[40px] '>
-                    <div key='gray'className={`${color== "#1B2437" ? " border-[#1B2437] border-[2px]" : "" }  rounded-md outline-offset-5`}>
-                    <button onClick={() => setColor('#1B2437')} className='w-[24px] h-[24px] bg-[#1B2437]  rounded-sm m-[5px] items-center flex  '></button>
-                    </div>
-                   
-                    <div  key='teal'className={`${color == '#127681' ? "border-[#127681] border-[2px]" : ""}   rounded-md outline-offset-5`}>
-                    <button  onClick={() => setColor('#127681')} className='w-[24px] h-[24px] bg-[#127681]  rounded-sm m-[5px] items-center flex  '></button>
-                    </div>
-                    <div key='green' className={`${color == '#32E0C4' ? "border-[#32E0C4] border-[2px]" : ""}    rounded-md outline-offset-5  `}>
-                    <button  onClick={() => setColor('#32E0C4')}className='w-[24px] h-[24px] bg-[#32E0C4]  rounded-sm m-[5px] items-center flex  '></button>
-                    </div>
+                {colors.map((pickedColor,index) => (
+                        <div key={pickedColor+index} className={`rounded-md outline-offset-5 ${color == pickedColor ? `border-2 border-[${pickedColor}]` : ""}`}>
+                        <button onClick={() => setColor(pickedColor)} className={`w-[24px] h-[24px] bg-[${pickedColor}] rounded-sm m-[5px] items-center flex`}></button>
+                      </div>
+                    ))}
                 </div>
                 
             </div>
