@@ -9,7 +9,7 @@ const locations = ['Home','Shop','Blog','Contact']
         <div className='bg-white text-black mb-[1px] mt-[52px]  items-center justify-center '> <div className=' justify-center grid items-center mt-[68px] '> 
        <ul className='  justify-center grid grid-cols-4 place-items-center   items-center gap-x-[40px] h-[80px]  '>
         {locations.map((location,index) => (
- <span onClick={() => setHeaderLocation(location)}  className={`${headerLocation == location ? " line-through" : ""} text-[24px] font-sans justify-center items-center cursor-pointer `}>
+ <span key={location+index} onClick={() => setHeaderLocation(location)}  className={`${headerLocation == location ? " line-through" : ""} text-[24px] font-sans justify-center items-center cursor-pointer `}>
  {location}
 </span>
         ))}
