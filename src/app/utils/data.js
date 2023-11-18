@@ -17,7 +17,7 @@ export const productData = [
         reviews:2,
         score:4,
         image:'product/dres1.png',
-        thumbnails:['product/dres1.png','product/dres2.png','product/dres3.png','product/dres4.png','product/dres1.png'],
+        thumbnails:[`product/dres1.png`,'product/dres2.png','product/dres3.png','product/dres4.png','product/dres1.png'],
         reviews:[
             {
                 id:1,

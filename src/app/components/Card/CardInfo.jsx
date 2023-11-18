@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 
-function CardInfo() {
+function CardInfo({info,brand,delivery}) {
     const [cardInfo, setCardInfo] = useState('Info')
   return (
     <div className=" mt-[34px]  mr-[36px] ">
@@ -12,23 +12,17 @@ function CardInfo() {
             </section>
            {cardInfo == 'Info' ? (
              <h2 key={'InfoDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] ] items-start p-0 leading-[24px] h-[72px] w-[469px] ">
-             Dress with tulle and collar Peter Pan from REDValentino 
- (Red Valentino). Peter Pan collar, tulle panels, sleeveless model, 
- concealed back zipper and pleated skirt.
+             {info}
              </h2>
            ) : ""}
            {cardInfo =='Brand' ? (
              <h2 key={'BrandDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] leading-[24px] items-start p-0 h-[72px] w-[469px] ">
-             Brand with tulle and collar Peter Pan from REDValentino 
- (Red Valentino). Peter Pan collar, tulle panels, sleeveless model, 
- concealed back zipper and pleated skirt. Black colour.
+             {brand}
              </h2>
            ): ""}
             {cardInfo == 'Delivery' ? (
                  <h2 key={'DeliveryDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] leading-[24px] items-start p-0 h-[72px] w-[469px] ">
-                 Delivery with tulle and collar Peter Pan from REDValentino 
-     (Red Valentino). Peter Pan collar, tulle panels, sleeveless model, 
-     concealed back zipper and pleated skirt. Black colour.
+                {delivery}
                  </h2>
             ) : ""}
           </div>

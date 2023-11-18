@@ -6,58 +6,36 @@ import CardInfo from "./CardInfo";
 import ProductDetails from "./ProductDetails";
 import ProductStats from "./ProductStats";
 import {motion} from 'framer-motion'
+import { useContextData } from "@/app/utils/contextData";
 
 function CardComponent({product}) {
+  
   console.log('Product',{product})
-    const [selectedImage,setSelectedImage] = useState('1')
+    const [selectedImage,setSelectedImage] = useState(0)
   return (
     <div className=" xl:w-[1140px] justify-center  flex bg-white mt-[62px] text-[#1B2437] sm:w-fit md:h-full md:w-fit     md:max-h-[660px] rounded-xl">
+      
       <div className="grid md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 ">
         <div className=" flex  flex-col justify-center pl-[40px]  pb-[40px] ">
           <div className="mt-[40px] px-[156px] justify-center items-center flex-col flex">
             <img 
-              src="/product/dres1.png"
+              src={product.thumbnails[selectedImage]}
               alt="dres1"
-              className="object-cover max-w-[280px] max-h-[436px]"
+              className="object-cover w-[280px] h-[436px]"
             />
             <div className="flex flex-row mt-[56px]  ">
-              <motion.div      
+              {product.thumbnails.map((image,index) => (
+                <motion.div      
               initial={{opacity:0,x:-100}} 
               animate={{opacity:1,x:0}}      
-              transition={{delay:0.1}} onClick={() => setSelectedImage('1')} className={`${selectedImage === '1' ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
+              transition={{delay:0.1}} onClick={() => setSelectedImage(index)} className={`${selectedImage === index ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
                 <motion.img whileHover={{scale:1.1}}
-                  src="/product/dres1.png"
-                  className="w-[46px] h-[72px]"
+                  src={image}
+                  className="w-[46px] h-[72px] flex-shrink-0 object-cover "
                 />
               </motion.div>
+              ))}             
 
-              <motion.div        
-              animate={{opacity:1,x:0}}     
-              initial={{opacity:0,x:-100}}       
-              transition={{delay:0.2}}  onClick={() => setSelectedImage('2')} className={`${selectedImage === '2' ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
-                <motion.img whileHover={{scale:1.1}} src="/product/dres2.png" className="max-w-[72px] max-h-[72px] flex-shrink-0 object-cover  " />
-              </motion.div>
-
-              <motion.div      
-              animate={{opacity:1,x:0}}         
-              initial={{opacity:0,x:-100}}       
-              transition={{delay:0.3}} onClick={() => setSelectedImage('3')} className={`${selectedImage === '3' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
-                <motion.img whileHover={{scale:1.1}} src="/product/dres3.png" className="w-[46px] h-[72px] flex-shrink-0 object-cover "  />
-              </motion.div>
-
-              <motion.div 
-              animate={{opacity:1,x:0}}            
-              initial={{opacity:0,x:-100}}       
-              transition={{delay:0.4}} onClick={() => setSelectedImage('4')} className={`${selectedImage === '4' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
-                <motion.img whileHover={{scale:1.1}} src="/product/dres4.png" className="w-[46px] h-[72px] flex-shrink-0 object-cover " />
-              </motion.div>
-
-              <motion.div   
-              animate={{opacity:1,x:0}}            
-              initial={{opacity:0,x:-100}}       
-              transition={{delay:0.5}} onClick={() => setSelectedImage('5')} className={`${selectedImage === '5' ? "-mt-4 border-[#EDA3B5] border-2 " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
-                <motion.img whileHover={{scale:1.1}} src="/product/dres1.png" className="w-[46px] h-[72px]  flex-shrink-0 object-cover " />
-              </motion.div>
             </div>
           </div>
 
@@ -88,10 +66,10 @@ function CardComponent({product}) {
               </div>
             </div>
           </div>
-          <CardTitle title={'ASD'} />
+          <CardTitle title={product.title} />
 
           <ReviewStats />
-          <CardInfo />
+          <CardInfo  info={product.info} brand={product.brand} delivery={product.delivery}/>
           <ProductDetails />
           <ProductStats />
           

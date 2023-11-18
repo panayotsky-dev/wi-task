@@ -7,7 +7,8 @@ import { ContextProvider, useContextData } from './utils/contextData'
 
 export default function Home() {
   const { allProducts,pickProduct,selectedProduct } = useContextData();
-
+  
+  const selected = allProducts.filter((product) => product.id === 1)[0];
 
   return (
     
@@ -15,7 +16,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center  bg-[#F6F6F6] ">
        
       <Header />
-      <CardComponent  product={allProducts}/>
+      <CardComponent product={selected}/>
       <ReviewsComponent />
       
     </main>
