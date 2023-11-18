@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 
 
 export default function Home() {
-  const { allProducts,pickProduct,selectedProduct } = useContextData();
+  const { allProducts,headerLocation,pickProduct,selectedProduct } = useContextData();
   
   const selected = allProducts.filter((product) => product.id === 1)[0];
 
@@ -18,9 +18,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center  bg-[#F6F6F6] ">
        
       <Header />
-      <CardComponent product={selected}/>
-      <ReviewsComponent />
-      
+      {headerLocation == 'Home' ? (<>
+ <CardComponent product={selected}/>
+ <ReviewsComponent /></>
+      ) : ""}
+     
       <Footer />
       
     </main>
