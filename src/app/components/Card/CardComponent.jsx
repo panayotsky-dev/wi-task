@@ -31,7 +31,7 @@ function CardComponent({product}) {
               transition={{delay:0.1}} onClick={() => setSelectedImage(index)} className={`${selectedImage === index ? "-mt-4 border-[#EDA3B5] border-2  " : "" } w-[88px] h-[88px]  rounded-md flex   justify-center items-center  mr-[24px]`}>
                 <motion.img whileHover={{scale:1.1}}
                   src={image}
-                  className="w-[46px] h-[72px] flex-shrink-0 object-cover "
+                  className="w-[46px] h-[72px] flex-shrink-0 object-cover rounded-md "
                 />
               </motion.div>
               ))}             
