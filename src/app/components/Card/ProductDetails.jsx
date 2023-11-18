@@ -16,8 +16,8 @@ function ProductDetails({product}) {
                 </div>
                 <div className='flex flex-row justify-between mt-[8px]'>
                     {product.sizes.map((size,index) => (
-                        <button key={index+size} onClick={() => {
-                            setSelectedSize(size);
+                        <button key={index+size} onClick={() => { selectedSize != size ?
+                            setSelectedSize(size) : setSelectedSize('');
                           }} className={`${selectedSize === size ? " bg-[#EDA3B5] w-[60px] h-[44px]  text-white" : "border-gray-200 border-2"} w-[60px] h-[44px]   rounded-md text-[#1B2437] `}>{size}</button>
                     ))}
                     
