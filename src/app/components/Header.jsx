@@ -10,6 +10,7 @@ import {motion} from 'framer-motion'
 import { useContextData } from '../utils/contextData'
 
 function Header() {
+    const {toggleModal } = useContextData();
  const socialIcons = [
     {
         id:1,
@@ -68,12 +69,12 @@ function Header() {
          transition={{type:"spring",stiffness:100,}}
          
           className='grid grid-cols-2 gap-[24px] justify-between items-center'>
-            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><HiMagnifyingGlass /></motion.div>
+            <motion.div  whileHover={{scale:1.1}} whileTap={{scale:0.95}}><HiMagnifyingGlass /></motion.div>
             {cartCount == 0 ? (
-                <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.95}}><IoBagOutline /></motion.div>
-            ):(<div className='items-center justify-center flex flex-row -ml-4'>
+                <motion.div onClick={toggleModal}  whileHover={{scale:1.1}} whileTap={{scale:0.95}}><IoBagOutline /></motion.div>
+            ):(<div onClick={toggleModal} className='items-center justify-center flex flex-row -ml-4'>
                 <IoBagOutline />
-                <motion.div className="rounded-full bg-[#EDA3B5] w-6 ml-2  flex justify-center items-center text-center"
+                <motion.div  className="rounded-full bg-[#EDA3B5] w-6 ml-2  flex justify-center items-center text-center"
                 animate={{opacity:1,x:0,y:0}}
                 initial={{opacity:0,y:-200,}}
                 

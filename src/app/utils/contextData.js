@@ -14,6 +14,7 @@ export function ContextProvider({children}) {
     const [amount,setAmount] = useState(0)
     const [headerLocation,setHeaderLocation] = useState('Home')
     const [selectedProduct,setSelectedProduct] = useState(null)
+    const [showModal, setShowModal] = useState(false)
     
     const pickProduct = (id) => {
         const selected = allProducts.filter((product) => product.id === id)[0];
@@ -39,10 +40,13 @@ export function ContextProvider({children}) {
           )
         );
       };
+      function toggleModal() {
+        setShowModal(!showModal);
+      }
 
 
  return (
-    <ContextData.Provider value={{pickProduct,selectedProduct,addToCart,addReviewToProduct,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,pickedSize,setPickedSize,amount,headerLocation,setHeaderLocation}}>
+    <ContextData.Provider value={{toggleModal,showModal,pickProduct,selectedProduct,addToCart,addReviewToProduct,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,pickedSize,setPickedSize,amount,headerLocation,setHeaderLocation}}>
         {children}
     </ContextData.Provider>
     

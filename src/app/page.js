@@ -6,10 +6,13 @@ import ReviewsComponent from './components/Reviews/ReviewsComponent'
 import { ContextProvider, useContextData } from './utils/contextData'
 import Footer from './components/Footer'
 import OtherComponent from './components/OtherComponent'
+import { useState } from 'react'
+import ModalCart from './components/ModalCart'
+import Modal from 'react-modal'
 
 
 export default function Home() {
-  const { allProducts,headerLocation,pickProduct,selectedProduct } = useContextData();
+  const { allProducts,headerLocation,pickProduct,selectedProduct,showModal } = useContextData();
   
   const selected = allProducts.filter((product) => product.id === 1)[0];
 
@@ -43,13 +46,23 @@ export default function Home() {
       mainContent = null;
       break;
   }
-
+  
   return (
     
  
     <main className="flex min-h-screen flex-col items-center bg-[#F6F6F6]">
+       
       <Header />
+      <>
+      {showModal && (
+        <ModalCart
+          name={selected.title}
+          image={selected.image}
+          
+        />
+        )}
       {mainContent}
+      </>
       <Footer />
     </main>
     
