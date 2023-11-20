@@ -33,10 +33,10 @@ export function ContextProvider({children}) {
 
       const addToCart = (id, size, pickedColor) => {       
         const selectedProduct = allProducts.find((product) => product.id === id);
-    
+        console.log(id,size,pickedColor)
         if (selectedProduct) {
           const { image, price, title } = selectedProduct;
-    
+            console.log(image)
           const existingProduct = cartProducts.find(
             (item) =>
               item.id === id &&
@@ -88,6 +88,7 @@ export function ContextProvider({children}) {
               : product
           )
         );
+        console.log('Added Review')
       };
 
       function toggleModal() {
