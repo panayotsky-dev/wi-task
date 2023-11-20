@@ -17,9 +17,9 @@ const locations = ['Home','Shop','Blog','Contact']
 
        </div> </div>
     
-        <div className="flex items-end w-full  bg-gray-100">
-          <footer className="w-full text-black-700 bg-white body-font">
-            <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+        <div className="flex items-end w-full  bg-gray-100 ">
+          <footer className="w-full text-black-700 bg-white body-font ">
+            <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap   pl-[200px]">
               <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
                 <a className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
                 <img src='logo.png' alt='logoImage' className='mr-[16px] mt-1 w-[22px] h-[24px]'/>
