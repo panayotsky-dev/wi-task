@@ -4,6 +4,7 @@ import { useContextData } from '../utils/contextData';
 function Footer() {
 const {headerLocation,setHeaderLocation} = useContextData()
 const locations = ['Home','Shop','Blog','Contact']
+const year = new Date().getFullYear();
   return (
     <div className='w-full'>
         <div className='bg-white text-black mb-[1px] mt-[52px]  items-center justify-center '> <div className=' justify-center grid items-center mt-[68px] '> 
@@ -122,10 +123,11 @@ aesthetic expression at a particular time, place and in a specific context, espe
               <div className="flex flex-col items-center justify-between sm:flex-row">
                 <div className="container px-5 py-4 justify-start flex ">
                   <p className="text-sm text-gray-700 capitalize xl:text-center">
-                    © Clay Shop All rights reserved{" "}
+                    © Clay Shop All rights reserved {year}
                   </p>
+                  
                 </div>
-    
+                     
                 <div className="container px-5 py-4 mx-auto justify-end flex">
                   <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                     <a className="text-gray-900 cursor-pointer hover:text-gray-700">
