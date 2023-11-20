@@ -17,8 +17,48 @@ function ModalCart({ name,image,
             </section>
             
            {cartNav == 'Cart' ? (
-             <section key={'cartDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] ] items-start p-0 leading-[24px]  h-full ">
-              <div className='grid grid-cols-2 border-b-2  mx-[32px] pb-[32px] '>
+             <section key={'cartDetails'} className=" text-[#8E8E93] text-[16px] ] items-start p-0 leading-[24px]  h-full ">
+              <div className='grid grid-cols-2 border-b-2  mx-[32px] pb-[32px] mt-[32px] '>
+              <div className=' w-full justify-start  '>
+              <div className=' flex flex-row '>
+                <img src='/product/dres1.png' className='w-[112px] h-[112px] mr-[32px] rounded-md ' />
+                <div className='flex flex-col justify-between'>
+                <span className='text-[#1B2437] text-[34px] font-sans tracking-[0.4px]'>Gucci Leather belt</span>
+                <div className='flex flex-row items-center'>
+                <span className='text-[#1B2437] text-[16px] mr-[8px] '>Size</span>
+                <span className='text-[#8E8E93] text-[16px] leading-[24px]'>70 cm</span>
+                </div>
+                <div className='flex flex-row items-center'>
+                <span className='text-[#1B2437] text-[16px] mr-[8px]'>Color</span>
+                <button  className={`w-[16px] h-[16px] bg-[#1B2437] rounded-sm m-[5px] items-center flex`}></button>
+                <button  className={`w-[16px] h-[16px] bg-[#F3C623] rounded-sm m-[5px] items-center flex`}></button>
+                </div>
+                </div>
+                
+                
+              </div>
+             </div>
+             <div className='items-center ml-[101px] flex flex-row'>
+              <div className='flex flex-row items-center'>
+                <button className='rounded-2xl w-[44px] h-[44px] border-2 mr-[16px]'><img src='/icons/minus.svg'  className=' pl-[8px] '/></button>
+                <span className='mr-[16px] text-[#D1D1D6] text-[20px] font-bold '>1</span>
+                <button className='rounded-2xl w-[44px] h-[44px] border-2 mr-[16px]'><img src='/icons/plus.svg'  className=' pl-[8px] '/></button>
+              </div>
+              <div className=' w-full justify-end flex  '>
+                <div className='w-[135px]  justify-between flex  '>
+                  <div className='text-[#1B2437]  '>
+                  <span className=' text-[24px] mr-[7px] items-center'>$</span>
+                  <span className='text-[34px] tracking-[0.4px] font-sans '>32</span>
+                  </div>
+                  <button><img src='/icons/cancel.svg' /></button>
+                </div>
+                
+              </div>
+              
+             </div>
+             
+              </div>
+              <div className='grid grid-cols-2 border-b-2  mx-[32px] pb-[32px] mt-[32px] '>
               <div className=' w-full justify-start  '>
               <div className=' flex flex-row '>
                 <img src='/product/dres1.png' className='w-[112px] h-[112px] mr-[32px] rounded-md ' />
@@ -87,8 +127,9 @@ function ModalCart({ name,image,
                   </div>
                 </section>
                 <section className="w-full justify-between flex text-black pt-[24px] pb-[22px] items-center ">
-                <motion.button onClick={toggleModal} whileTap={{scale:0.95}} className=' border rounded-2xl w-[160px] h-[52px] items-center bg-[#EDA3B5] text-white font-semibold text-[20px]'>Shop Now</motion.button>
-        <motion.button whileTap={{scale:0.95}}  className=' border-[#EDA3B5] border-2 rounded-2xl w-[160px] h-[52px] items-center  text-[#EDA3B5] font-semibold text-[20px]'>Add to cart</motion.button>
+                <motion.button whileTap={{scale:0.95}}  className=' border-[#EDA3B5] border-2 rounded-2xl w-[160px] h-[52px] items-center  text-[#EDA3B5] font-semibold text-[20px]'>Shop now</motion.button>
+                <motion.button onClick={toggleModal} whileTap={{scale:0.95}} className=' border rounded-2xl w-[160px] h-[52px] items-center bg-[#EDA3B5] text-white font-semibold text-[20px]'>Add to cart</motion.button>
+        
                 </section>
           </div>
           </div>
