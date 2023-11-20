@@ -1,7 +1,10 @@
 'use client'
+import { useContextData } from '@/app/utils/contextData';
 import React from 'react'
 
 function ReviewStats({props}) {
+  const {allProducts} = useContextData()
+  const selected = allProducts.filter((product) => product.id === 1)[0];
   return (
     <div className="flex flex-row">
             <div class="flex items-center">
@@ -52,7 +55,7 @@ function ReviewStats({props}) {
               </svg>
             </div>
             <span className="text-[16px] text-[#1B2437] pl-[16px] items-center justify-center">
-               {props} Reviews
+               {selected.reviews.length} Reviews
             </span>
           </div>
   )
