@@ -1,10 +1,13 @@
+import { useContextData } from '@/app/utils/contextData'
 import React, { useEffect, useState } from 'react'
 
 function ProductDetails({product}) {
+   const{setPickedColor,setSize} = useContextData()
     const [selectedSize,setSelectedSize] = useState('')
     const [color,setColor] = useState('')
     useEffect(() => {
-      
+      setPickedColor(color)
+      setSize(selectedSize)
     }, [selectedSize,color])
     
   return (

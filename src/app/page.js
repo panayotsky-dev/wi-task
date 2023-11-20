@@ -6,7 +6,7 @@ import ReviewsComponent from './components/Reviews/ReviewsComponent'
 import { ContextProvider, useContextData } from './utils/contextData'
 import Footer from './components/Footer'
 import OtherComponent from './components/OtherComponent'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ModalCart from './components/ModalCart'
 import Modal from 'react-modal'
 

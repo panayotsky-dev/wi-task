@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { productData } from './data';
 
 const ContextData = createContext();
@@ -10,12 +10,20 @@ export function ContextProvider({children}) {
     const [cartProducts,setCartProducts] = useState([])
     const [allProducts,setAllProducts] = useState(productData)
     const [pickedColor,setPickedColor] = useState('')
-    const [pickedSize,setPickedSize] = useState('')
+    const [size,setSize] = useState('')
     const [amount,setAmount] = useState(0)
     const [headerLocation,setHeaderLocation] = useState('Home')
-    const [selectedProduct,setSelectedProduct] = useState(null)
+    const [selectedProduct,setSelectedProduct] = useState(1)
     const [showModal, setShowModal] = useState(false)
     
+    useEffect(() => {
+      saveDatatoLocalStorage(cartProducts);
+    }, [cartProducts])
+    const saveDatatoLocalStorage = (cart) => {
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
+    };
+  
     const pickProduct = (id) => {
         const selected = allProducts.filter((product) => product.id === id)[0];
         if (selected) {
@@ -23,10 +31,51 @@ export function ContextProvider({children}) {
         }
       };
 
-    const addToCart = (productId) =>{
-        setCartCount((prevCount) => prevCount +1);
-        setCartProducts((prevCart) => [...prevCart,productId]);        
-    }
+      const addToCart = (id, size, pickedColor) => {       
+        const selectedProduct = allProducts.find((product) => product.id === id);
+    
+        if (selectedProduct) {
+          const { image, price, title } = selectedProduct;
+    
+          const existingProduct = cartProducts.find(
+            (item) =>
+              item.id === id &&
+              item.size === size &&
+              item.color === pickedColor
+          );
+    
+          if (existingProduct) {           
+            setCartProducts((prevCart) => {
+              const newCart = [...prevCart];
+              const existingProductIndex = newCart.indexOf(existingProduct);
+              newCart[existingProductIndex].quantity += 1;
+              return newCart;
+            });
+          } else {           
+            setCartProducts((prevCart) => [
+              ...prevCart,
+              { id, size, color: pickedColor, image, price, title, quantity: 1 },
+            ]);            
+            setCartCount(cartProducts.length +1);
+          }
+        }
+        
+      };
+      const removeFromCart = (productId, size, color) => {
+        
+        const updatedCart = cartProducts.filter(
+          (item) =>
+            item.id !== productId || item.size !== size || item.color !== color
+        );
+            setCartProducts(updatedCart);
+               setCartCount(updatedCart.length);
+      };
+     
+    
+    
+    
+    
+
     const addReviewToProduct = (productId, review) => {
         setAllProducts((prevProducts) =>
           prevProducts.map((product) =>
@@ -40,13 +89,17 @@ export function ContextProvider({children}) {
           )
         );
       };
+
       function toggleModal() {
         setShowModal(!showModal);
       }
 
 
  return (
-    <ContextData.Provider value={{toggleModal,showModal,pickProduct,selectedProduct,addToCart,addReviewToProduct,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,pickedSize,setPickedSize,amount,headerLocation,setHeaderLocation}}>
+    <ContextData.Provider value={{setCartProducts: (cart) => {
+      setCartProducts(cart);
+      saveDatatoLocalStorage(cart);
+    },removeFromCart,toggleModal,showModal,pickProduct,selectedProduct,addToCart,addReviewToProduct,cartCount,cartProducts,allProducts,pickedColor,setPickedColor,size,setSize,amount,headerLocation,setHeaderLocation,setCartProducts}}>
         {children}
     </ContextData.Provider>
     

@@ -4,9 +4,12 @@ import React, { useContext } from 'react'
 import {motion} from 'framer-motion'
 
 function ProductStats({product}) {
-  const {addToCart} = useContextData()
+  const {addToCart,size,pickedColor} = useContextData()
 const handleAddToCart = () => {
-  addToCart(1)
+  if(size != '' && pickedColor != ''){
+    addToCart(1,size,pickedColor)
+  }
+  
 }
   return (
     <div className='mt-[42px] justify-between flex flex-row  pr-[36px]'>
