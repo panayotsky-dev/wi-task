@@ -8,18 +8,19 @@ function ModalCart({ name,image,
         const [cartNav,setCartNav] = useState('Cart')
   return (
   <div   className='absolute inset-0 flex items-center justify-center  z-10 bg-inherit'>
-    <div className=" w-full  max-w-[1140px] rounded-md bg-white mt-4  ">
-            <section id='cartNav' className="flex flex-row justify-between   items-center place-items-center  ">
-                <button key='Cart' onClick={() => cartNav != 'Cart' ? setCartNav('Cart') : ""} className={` ${cartNav == "Cart" ? "border-[#EDA3B5]  text-[#EDA3B5]"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3   justify-center flex `}>Cart</button>
-                <button key='Checkout' onClick={() => cartNav != 'Checkout' ? setCartNav('Checkout') : ""} className={` ${cartNav == "Checkout" ? "border-[#EDA3B5]  text-[#EDA3B5]"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3  justify-center flex`}>Checkout</button>
-                <button key='Shipping' onClick={() => cartNav != 'Shipping' ? setCartNav('Shipping') : ""} className={`${cartNav == "Shipping" ? "border-[#EDA3B5]  text-[#EDA3B5]"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3   justify-center flex`}>Shipping</button>
-                <button key='Done' onClick={() => cartNav != 'Done' ? setCartNav('Done') : ""} className={`${cartNav == "Done" ? "border-[#EDA3B5]  text-[#EDA3B5]"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3   justify-center flex`}>Done</button>
+    <div className=" w-full  max-w-[1140px] rounded-md bg-white  ">
+            <section id='cartNav' className="flex flex-row justify-between   items-center place-items-center   ">
+                <button key='Cart' onClick={() => cartNav != 'Cart' ? setCartNav('Cart') : ""} className={` ${cartNav == "Cart" ? "border-[#EDA3B5]  text-[#EDA3B5] font-bold"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3  text-[20px]  justify-center flex py-[16px] `}>Cart</button>
+                <button key='Checkout' onClick={() => cartNav != 'Checkout' ? setCartNav('Checkout') : ""} className={` ${cartNav == "Checkout" ? "border-[#EDA3B5]  text-[#EDA3B5] font-bold "  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3  text-[20px] justify-center flex py-[16px]`}>Checkout</button>
+                <button key='Shipping' onClick={() => cartNav != 'Shipping' ? setCartNav('Shipping') : ""} className={`${cartNav == "Shipping" ? "border-[#EDA3B5]  text-[#EDA3B5] font-bold "  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3  text-[20px]  justify-center flex py-[16px]`}>Shipping</button>
+                <button key='Done' onClick={() => cartNav != 'Done' ? setCartNav('Done') : ""} className={`${cartNav == "Done" ? "border-[#EDA3B5]  text-[#EDA3B5]  font-bold"  : "border-[#EFEFF4]  text-[#1B2437] "} border-b-2 w-1/3 text-[20px]  justify-center flex py-[16px]`}>Done</button>
             </section>
             
            {cartNav == 'Cart' ? (
-             <section key={'cartDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] ] items-start p-0 leading-[24px]  h-fit grid grid-cols-2 border-b-2  mx-[32px]">
-             <div className=' w-full justify-start  '>
-              <div className='py-[32px] flex flex-row '>
+             <section key={'cartDetails'} className="mt-[32px] text-[#8E8E93] text-[16px] ] items-start p-0 leading-[24px]  h-full ">
+              <div className='grid grid-cols-2 border-b-2  mx-[32px] pb-[32px] '>
+              <div className=' w-full justify-start  '>
+              <div className=' flex flex-row '>
                 <img src='/product/dres1.png' className='w-[112px] h-[112px] mr-[32px] rounded-md ' />
                 <div className='flex flex-col justify-between'>
                 <span className='text-[#1B2437] text-[34px] font-sans tracking-[0.4px]'>Gucci Leather belt</span>
@@ -37,9 +38,29 @@ function ModalCart({ name,image,
                 
               </div>
              </div>
-             <div>
-              <h1>text</h1>
+             <div className='items-center ml-[101px] flex flex-row'>
+              <div className='flex flex-row items-center'>
+                <button className='rounded-2xl w-[44px] h-[44px] border-2 mr-[16px]'><img src='/icons/minus.svg'  className=' pl-[8px] '/></button>
+                <span className='mr-[16px] text-[#D1D1D6] text-[20px] font-bold '>1</span>
+                <button className='rounded-2xl w-[44px] h-[44px] border-2 mr-[16px]'><img src='/icons/plus.svg'  className=' pl-[8px] '/></button>
+              </div>
+              <div className=' w-full justify-end flex  '>
+                <div className='w-[135px]  justify-between flex  '>
+                  <div className='text-[#1B2437]  '>
+                  <span className=' text-[24px] mr-[7px] items-center'>$</span>
+                  <span className='text-[34px] tracking-[0.4px] font-sans '>32</span>
+                  </div>
+                  <button><img src='/icons/cancel.svg' /></button>
+                </div>
+                
+              </div>
+              
              </div>
+             
+              </div>
+              
+             
+             
              </section>
            ) : ""}
            {cartNav =='Checkout' ? (
@@ -57,10 +78,15 @@ function ModalCart({ name,image,
              - Done - 
              </h2>
            ): ""}
-           <section id='totalAmount ' className='w-full flex justify-end bg-[#F6F6F6]'>
-                  <h1 className=' justify-end items-center text-black  '>Total amount</h1>
+           <section id='totalAmount ' className='w-full flex justify-end bg-[#F6F6F6] text-[#1B2437]'>
+                  <div className=' flex  w-full ml-[816px] '>
+                  <span className='  items-center text-[#1B2437] py-[11px] text-[24px] font-sans mr-[16px]  '>Total amount</span>
+                  <span className=' text-[24px] mr-[7px] items-center flex'>$</span>
+                  <span className='text-[34px] tracking-[0.4px] font-sans '>32</span>
+                  
+                  </div>
                 </section>
-                <section className="w-full justify-between flex text-black">
+                <section className="w-full justify-between flex text-black pt-[24px] pb-[22px] items-center ">
                 <motion.button onClick={toggleModal} whileTap={{scale:0.95}} className=' border rounded-2xl w-[160px] h-[52px] items-center bg-[#EDA3B5] text-white font-semibold text-[20px]'>Shop Now</motion.button>
         <motion.button whileTap={{scale:0.95}}  className=' border-[#EDA3B5] border-2 rounded-2xl w-[160px] h-[52px] items-center  text-[#EDA3B5] font-semibold text-[20px]'>Add to cart</motion.button>
                 </section>
